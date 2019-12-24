@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add datasets</title>
+        <link
+            href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+        <!-- <link rel='stylesheet' href='/stylesheets/style.css'/>
+            <link rel="stylesheet" href="/stylesheets/viewexperiment.css"> -->
+            <link href="/css/style.css" rel="stylesheet" type="text/css">
+    </head>
+
+  <body>
+    <div class="container">
+        <!-- Navigation Bar --> 
+        <div class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/home">Home </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <form class="form logout-link" id="form" method="POST" action="/logout">
+                                    <a href="/logout"
+                                        onclick="document.getElementById('form').submit(); return false;"></span>
+                                        Logout</a> 
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="content-container row divtop">
+            <!-- progress bar -->
+            <div class="progress-container">
+                <div class="progress-track"></div>
+                <div class="progress-track-completed step3"></div>
+                <div class="complete-bullet"></div>
+                <div class="complete-text">
+                    <span class="step-text">Complete</span>
+                </div>
+                <div id="step1" class="progress-step-complete">
+                    <span class="step-text">Choose model</span>
+                </div>
+                <div id="step2" class="progress-step-complete">
+                    <span class="step-text">Select data</span>
+                </div>
+                <div id="step3" class="progress-step-complete">
+                    <span class="step-text">Customize inputs</span>
+                </div>
+                <div id="step4" class="progress-step">
+                    <span class="step-text">Name+train</span>
+                </div>
+            </div>
+            <h1 class="step-title">3. Customize model inputs (optional)</h1>
+            <div class="step-container params-content">
+                <h4 class="step-directions">Customize model inputs below (optional)</h4>
+                <a onclick="window.open('https://towardsdatascience.com/epoch-vs-iterations-vs-batch-size-4dfb9c7ce9c9', '_blank', 'top=100 left=300,width=800,height=500');"href="/params">what are these hyperparameters?</a>
+                <form  class="params-form" method="POST" action="/params">
+                    epoch: <input type="number" name="epoch" min="1" max="20" value= <%= epoch%>>
+                    <br>
+                    <br>
+                    batch_size: <input type="number" name="batch_size" min="1" max="100" value= <%= batch_size%>>
+                    <br>
+                    <br>
+                    steps_per_epoch: <input type="number" name="steps_per_epoch" min="1" max="100" value= <%= steps_per_epoch%>>
+                    <br>
+                    <br>
+                    <button class="params-submit-button btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                </form>
+            </div>
+            <!-- <br>
+            <a href="/upload">Go back to upload data</a>
+            <br>
+            <a href="/nameModel">next </a> -->
+            <div class="footer-nav">
+                    <a href="/upload">
+                        <button class="nav-button">
+                            Prev
+                        </button>
+                    </a>
+                    <a href="/nameModel">
+                        <button class="nav-button next-button">
+                            Next
+                        </button>
+                    </a>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add datasets</title>
+        <link
+            href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+        <!-- <link rel='stylesheet' href='/stylesheets/style.css'/>
+            <link rel="stylesheet" href="/stylesheets/viewexperiment.css"> -->
+            <link href="/css/style.css" rel="stylesheet" type="text/css">
+    </head>
+
+  <body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <div class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/home">Home </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <form class="form logout-link" id="form" method="POST" action="/logout">
+                                    <a href="/logout"
+                                        onclick="document.getElementById('form').submit(); return false;"></span>
+                                        Logout</a> 
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="content-container">
+            <!-- progress bar -->
+            <div class="progress-container">
+                <div class="progress-track"></div>
+                <div class="progress-track-completed step4"></div>
+                <div class="complete-bullet"></div>
+                <div class="complete-text">
+                    <span class="step-text">Complete</span>
+                </div>
+                <div id="step1" class="progress-step-complete">
+                    <span class="step-text">Choose model</span>
+                </div>
+                <div id="step2" class="progress-step-complete">
+                    <span class="step-text">Select data</span>
+                </div>
+                <div id="step3" class="progress-step-complete">
+                    <span class="step-text">Customize inputs</span>
+                </div>
+                <div id="step4" class="progress-step-complete">
+                    <span class="step-text">Name+train</span>
+                </div>
+            </div>
+            <h1 class="step-title">training your model "<%= modelName%>"...</h1>
+            <div class="step-container">
+                <p>
+                    Train on 396 samples, validate on 171 samples 2019-10-21 19:07:23.986221:
+                  </p>
+                  <p>
+                    Profiler session started. 396/396 [==============================] - 30s
+                    77ms/sample - loss: 0.6553 - acc: 0.5833 - val_loss: 0.5686 - val_acc: 0.7251
+                  </p>
+                  <p>
+                    Epoch 2/9 396/396 [==============================] - 29s 74ms/sample - loss:
+                    0.4655 - acc: 0.7929 - val_loss: 0.4708 - val_acc: 0.8304
+                  </p>
+                  <p>
+                    Epoch 3/9 396/396 [==============================] - 30s 77ms/sample - loss:
+                    0.3649 - acc: 0.8409 - val_loss: 0.3863 - val_acc: 0.8363
+                  </p>
+                  <p>
+                    Epoch 4/9 396/396 [==============> ] - 29s 74ms/sample - loss: 0.2460 - acc:
+                    0.9167 - val_loss: 0.3342 - val_acc: 0.8713
+                  </p>
+                  <p>.................</p>
+                  <p>.................</p>
+                  <p>.................</p>
+            </div>
+        </div>
+    </div>
+    <!-- <br>
+    <a href="/params">Go back to customize input</a> -->
+  </body>
+
+</html>

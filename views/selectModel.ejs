@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Choose a model</title>
+        <link
+            href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+            rel="stylesheet"
+            id="bootstrap-css"
+        />
+        <!-- <link rel='stylesheet' href='/stylesheets/style.css'/>
+            <link rel="stylesheet" href="/stylesheets/viewexperiment.css"> -->
+        <link href="/css/style.css" rel="stylesheet" type="text/css">
+    </head>
+
+  <body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <div class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/home">Home </a>
+                    </div> 
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <form class="form logout-link" id="form" method="POST" action="/logout">
+                                    <a href="/logout"
+                                        onclick="document.getElementById('form').submit(); return false;"></span>
+                                        Logout</a> 
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- content -->
+        <div class="content-container row divtop">
+            <!-- progress bar -->
+            <div class="progress-container">
+                <div class="progress-track"></div>
+                <div class="progress-track-completed step1"></div>
+                <div class="complete-bullet"></div>
+                <div class="complete-text">
+                    <span class="step-text">Complete</span>
+                </div>
+                <div id="step1" class="progress-step-complete">
+                    <span class="step-text">Choose model</span>
+                </div>
+                <div id="step2" class="progress-step">
+                    <span class="step-text">Select data</span>
+                </div>
+                <div id="step3" class="progress-step">
+                    <span class="step-text">Customize inputs</span>
+                </div>
+                <div id="step4" class="progress-step">
+                    <span class="step-text">Name+train</span>
+                </div>
+            </div>
+            <h1 class="step-title">1. Choose a model type </h1>
+            <div class="step-container">
+                <h4 class="step-directions">Select a model type below.</h4>
+                <a onclick="window.open('https://neurohive.io/en/popular-networks/vgg16/', '_blank', 'top=100 left=300,width=800,height=500');"href="/selectModel">read more about model types</a>
+                <%if (selectedModel!=""){%><p>you selected model: <%= selectedModel%></p><%}%>
+                <div class="model-type-button-form">
+                    <form  method="POST" action="/selectModel" >
+                        <div class="model-type-button-container">
+                            <!-- <label for="VGG16">VGG16</label><br> -->
+                            <%if(selectedModel==="VGG16"){%> 
+                                <button class="model-type-button model-type-button-selected" type="submit" name="selectedModel" value="VGG16">
+                            <%}else{%> 
+                                <button class="model-type-button" type="submit" name="selectedModel" value="VGG16">
+                            <%}%>
+                                <p class="model-type-button-name">
+                                    VGG16
+                                </p>
+                                <p class="model-type-button-description">
+                                    Deep Convolutional Networks for Large-Scale Image Recognition
+                                </p>
+                            </button>
+                            <br>
+                            <!-- <label for="CNN">CNN</label><br> -->
+                            <%if(selectedModel==="other-CNN"){%> 
+                                <button class="model-type-button model-type-button-selected" type="submit" name="selectedModel" value="other-CNN">
+                            <%}else{%> 
+                                <button class="model-type-button" type="submit" name="selectedModel" value="other-CNN">
+                            <%}%>
+                                <p class="model-type-button-name">
+                                    other CNN
+                                </p>
+                                <p class="model-type-button-description">
+                                    multi-layer neural networks to recognize visual patterns directly from pixel images with minimal preprocessing
+                                </p>
+                            </button>
+                        </div>
+                    </form>
+                </div>    
+                <!-- <br>
+                <br>
+                <a href="/">cancel </a>
+                <br>
+                <a href="/upload">next </a> -->
+            </div>
+            <div class="footer-nav">
+                <a href="/">
+                    <button class="nav-button">
+                        Cancel
+                    </button>
+                </a>
+                <a href="/upload">
+                    <button class="nav-button next-button">
+                        Next
+                    </button>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
